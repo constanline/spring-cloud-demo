@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.magicalyang.springcloud.account.dao.BizBookListDetailDao">
+  <resultMap id="BaseResultMap" type="com.magicalyang.springcloud.account.entity.BizBookListDetail">
+    <!--@mbg.generated-->
+    <!--@Table biz_book_list_detail-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="bood_list_id" jdbcType="INTEGER" property="bookListId" />
+    <result column="bood_id" jdbcType="INTEGER" property="bookId" />
+    <result column="book_name" jdbcType="VARCHAR" property="bookName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, bood_list_id, bood_id, book_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from biz_book_list_detail
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from biz_book_list_detail
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.magicalyang.springcloud.account.entity.BizBookListDetail" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into biz_book_list_detail (bood_list_id, bood_id, book_name
+    )
+    values (#{bookListId,jdbcType=INTEGER}, #{bookId,jdbcType=INTEGER}, #{bookName,jdbcType=VARCHAR}
+    )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.magicalyang.springcloud.account.entity.BizBookListDetail" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into biz_book_list_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bookListId != null">
+        bood_list_id,
+      </if>
+      <if test="bookId != null">
+        bood_id,
+      </if>
+      <if test="bookName != null">
+        book_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bookListId != null">
+          #{bookListId,jdbcType=INTEGER},
+      </if>
+      <if test="bookId != null">
+        #{bookId,jdbcType=INTEGER},
+      </if>
+      <if test="bookName != null">
+        #{bookName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.magicalyang.springcloud.account.entity.BizBookListDetail">
+    <!--@mbg.generated-->
+    update biz_book_list_detail
+    <set>
+      <if test="bookListId != null">
+          bood_list_id = #{bookListId,jdbcType=INTEGER},
+      </if>
+      <if test="bookId != null">
+        bood_id = #{bookId,jdbcType=INTEGER},
+      </if>
+      <if test="bookName != null">
+        book_name = #{bookName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.magicalyang.springcloud.account.entity.BizBookListDetail">
+    <!--@mbg.generated-->
+    update biz_book_list_detail
+    set bood_list_id = #{bookListId,jdbcType=INTEGER},
+    bood_id = #{bookId,jdbcType=INTEGER},
+    book_name = #{bookName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,14 @@
+
+dependencies {
+    api project(':common-core')
+
+    implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:${mybatisVersion}")
+
+    runtimeOnly('mysql:mysql-connector-java')
+    
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+test {
+    useJUnitPlatform()
+}
